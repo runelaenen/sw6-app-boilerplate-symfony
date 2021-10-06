@@ -24,4 +24,6 @@ Visit the Shopware Admin on http://127.0.0.1:8081/admin, log in with admin / sho
 
 ## Let me know & spread the love
 This boilerplate is available for free, and can be used in any way you want.
-I do love it though to hear from projects that are using it, so let me know: @runelaenen on Twitter, @Rune Laenen on the Shopware Community slack, or rune@laenen.me for old-school e-mail. 
+I do love it though to hear from projects that are using it, so let me know: @runelaenen on Twitter, @Rune Laenen on the Shopware Community slack, or rune@laenen.me for old-school e-mail.
+
+Also a round of applause for @vienthuong for the [vienthuong/shopware-php-sdk](https://github.com/vienthuong/shopware-php-sdk) package.

@@ -3,7 +3,6 @@
 namespace App\Security;
 
 use App\Entity\SwShop;
-use Shopware\Core\Framework\App\Hmac\Guzzle\AuthMiddleware;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthenticationHelper
