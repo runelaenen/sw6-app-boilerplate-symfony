@@ -15,9 +15,13 @@ exit
 
 ssh dockware@127.0.0.1:2223
 cd /var/www/html
+mysql -uroot -proot --database="shopware" --execute="UPDATE sales_channel_domain SET url='http://127.0.0.1:8081' WHERE sales_channel_id <> X'98432def39fc4624b33213a56b8c944d'"
 bin/console app:refresh # follow the wizard
 bin/console app:activate AppBoilerplate
 ```
 
+Visit the Shopware Admin on http://127.0.0.1:8081/admin, log in with admin / shopware. A new menu entry will be available under 'Settings' which takes you to your app.
+
+## Let me know & spread the love
 This boilerplate is available for free, and can be used in any way you want.
 I do love it though to hear from projects that are using it, so let me know: @runelaenen on Twitter, @Rune Laenen on the Shopware Community slack, or rune@laenen.me for old-school e-mail. 
