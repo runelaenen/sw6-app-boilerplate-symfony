@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>AppBoilerplate</name>
+        <label>Boilerplate setup</label>
+        <label lang="de-DE">Boilerplate setup</label>
+        <description>Boilerplate setup for Shopware 6</description>
+        <description lang="de-DE">Boilerplate setup für Shopware 6</description>
+        <author>Vendor</author>
+        <copyright>(c) by Vendor</copyright>
+        <version>1.0.0</version>
+        <license>proprietary</license>
+    </meta>
+    <setup>
+        <secret>MyVerySecureSecret</secret>
+        <registrationUrl>http://app/app/registration</registrationUrl>
+    </setup>
+    <webhooks>
+        <webhook name="app-activated" url="http://app/event/app-activated" event="app.activated"/>
+        <webhook name="app-deactivated" url="http://app/event/app-deactivated" event="app.deactivated"/>
+    </webhooks>
+    <permissions>
+        <read>product</read>
+        <read>product_translation</read>
+    </permissions>
+    <admin>
+        <module name="appBoilerplate"
+                source="http://127.0.0.1:8080/admin/startSession"
+                parent="sw-settings"
+                position="50"
+        >
+            <label>Boilerplate module</label>
+            <label lang="de-DE">Boilerplate Modul</label>
+        </module>
+
+        <main-module source="http://127.0.0.1:8080/admin/startSession"/>
+    </admin>
+</manifest>

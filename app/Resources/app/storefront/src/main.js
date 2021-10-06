@@ -1,0 +1,1 @@
+console.log("Loaded boilerplate app main.js!")

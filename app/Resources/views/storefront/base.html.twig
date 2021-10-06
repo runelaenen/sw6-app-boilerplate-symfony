@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_script_router %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        console.log("Loaded boilerplate app views!");
+    </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+version: "3"
+
+services:
+  app:
+    image: dockware/essentials:latest
+    container_name: app
+    ports:
+      - "8080:80"
+      - "2222:22"
+    networks:
+      - web
+    volumes:
+      - "./src:/var/www/html"
+      - "sf_db_volume:/var/lib/mysql"
+    environment:
+      - XDEBUG_ENABLED=1
+      - PHP_VERSION=8.0
+
+  shopware:
+    image: dockware/dev:latest
+    container_name: shopware
+    ports:
+      - "8081:80"
+      - "2223:22"
+    networks:
+      - web
+    volumes:
+      - "./app:/var/www/html/custom/apps/AppBoilerplate"
+      - "sw_db_volume:/var/lib/mysql"
+    environment:
+      - XDEBUG_ENABLED=0
+      - PHP_VERSION=8.0
+
+networks:
+  web:
+    external: false
+
+volumes:
+  sw_db_volume:
+    driver: local
+  sf_db_volume:
+    driver: local
