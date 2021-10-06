@@ -24,15 +24,27 @@ class AuthenticationHelper
 
         parse_str($queryString, $queries);
 
-        $queryString = sprintf(
-            'shop-id=%s&shop-url=%s&timestamp=%s&sw-version=%s&sw-context-language=%s&sw-user-language=%s',
-            $shop->getId(),
-            $shop->getUrl(),
-            $queries['timestamp'],
-            $queries['sw-version'],
-            $queries['sw-context-language'],
-            $queries['sw-user-language']
-        );
+        if (array_key_exists('sw-context-language', $queries)) {
+            // 6.4.5 and higher
+            $queryString = sprintf(
+                'shop-id=%s&shop-url=%s&timestamp=%s&sw-version=%s&sw-context-language=%s&sw-user-language=%s',
+                $shop->getId(),
+                $shop->getUrl(),
+                $queries['timestamp'],
+                $queries['sw-version'],
+                $queries['sw-context-language'],
+                $queries['sw-user-language']
+            );
+        } else {
+            //lower than 6.4.5
+            $queryString = sprintf(
+                'shop-id=%s&shop-url=%s&timestamp=%s&sw-version=%s',
+                $shop->getId(),
+                $shop->getUrl(),
+                $queries['timestamp'],
+                $queries['sw-version']
+            );
+        }
 
         $hmac = \hash_hmac('sha256', htmlspecialchars_decode($queryString), $shop->getSecret());
 
