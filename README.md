@@ -13,7 +13,7 @@ cd /var/www/html
 bin/console doctrine:migrations:migrate -q
 exit
 
-ssh dockware@127.0.0.1:2223
+ssh dockware@127.0.0.1 -p 2223
 cd /var/www/html
 mysql -uroot -proot --database="shopware" --execute="UPDATE sales_channel_domain SET url='http://127.0.0.1:8081' WHERE sales_channel_id <> X'98432def39fc4624b33213a56b8c944d'"
 bin/console app:refresh # follow the wizard
